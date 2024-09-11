@@ -6,7 +6,7 @@
 # Output example:
 # 3+1+4+1=9
 
-numbers_str = input()
+numbers_str = input("Number: ")
 
 if not numbers_str.isdigit():
     print("Please enter a valid integer")

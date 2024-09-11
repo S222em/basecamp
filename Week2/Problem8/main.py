@@ -3,16 +3,16 @@
 # Then your program should display a message indicating whether the characters are representing a valid license plate.
 #
 # Valid patterns:
-# XX-99-99 d
-# 99-99-XX d
-# 99-XX-99 d
-# XX-99-XX d
-# XX-XX-99 d
-# 99-XX-XX d
-# 99-XXX-9 d
-# 9-XXX-99 d
-# XX-999-X d
-# X-999-XX d
+# XX-99-99
+# 99-99-XX
+# 99-XX-99
+# XX-99-XX
+# XX-XX-99
+# 99-XX-XX
+# 99-XXX-9
+# 9-XXX-99
+# XX-999-X
+# X-999-XX
 # XXX-99-X
 # 9-XX-999
 # Input examples:
