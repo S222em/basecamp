@@ -26,9 +26,11 @@ j = len(word) - 1
 while i < j:
     if word[i] in string.punctuation:
         i += 1
+        continue
 
     if word[j] in string.punctuation:
         j -= 1
+        continue
 
     if word[i] != word[j]:
         is_palindrome = False
