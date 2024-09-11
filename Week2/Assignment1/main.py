@@ -44,9 +44,9 @@ def is_input_valid(inp_date: str):
 
     [possible_year, possible_month, possible_day] = [int(number) for number in numbers]
 
-    # Check if the provided date is in bounds
-    if possible_year < 0 or possible_month < 0 or possible_month > 12 or possible_day < 0 or possible_day > \
-            MONTH_LENGTH[possible_month - 1]: return False
+    if possible_year < 0: return False
+    if possible_month < 0 or possible_month > 12: return False
+    if possible_day < 0 or possible_day > MONTH_LENGTH[possible_month - 1]: return False
 
     return True
 
