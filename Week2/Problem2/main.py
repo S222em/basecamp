@@ -19,7 +19,7 @@ year = input("Year: ")
 
 if not year.isdigit():
     print("Please enter a valid integer")
-    exit(0)
+    exit()
 
 year = int(year)
 is_leap_year = year % 400 == 0 or (year % 100 != 0 and year % 4 == 0)

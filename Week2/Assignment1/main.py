@@ -53,7 +53,7 @@ def is_input_valid(inp_date: str):
 
 if not is_input_valid(user_input):
     print("Input format ERROR. Correct Format: YYYY-MM-DD")
-    exit(0)
+    exit()
 
 # Parse the input to integers
 [year, month, day] = [int(number) for number in user_input.split("-")]

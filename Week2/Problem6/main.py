@@ -21,13 +21,13 @@ human_years = input("Human years: ")
 
 if not human_years.isdigit() and not human_years.startswith("-"):
     print("Please enter a valid integer")
-    exit(0)
+    exit()
 
 human_years = int(human_years)
 
 if human_years < 0:
     print("Only positive numbers are allowed")
-    exit(0)
+    exit()
 
 dog_years = sum([4.0 if i > 1 else 10.5 for i in range(human_years)])
 

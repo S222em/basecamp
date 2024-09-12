@@ -22,7 +22,7 @@ user_input = input("Date: ")
 
 if not re.search("Month: \d{1,2}, Day: \d{1,2}", user_input):
     print("Please use the following format: Month: x, Day: y")
-    exit(0)
+    exit()
 
 [month_str, day_str] = user_input.split(", ")
 

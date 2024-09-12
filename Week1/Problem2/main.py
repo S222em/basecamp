@@ -14,7 +14,7 @@ years = input("Years: ")
 
 if not years.isdigit():
     print("Please enter a valid integer number")
-    exit(0)
+    exit()
 
 years = int(years)
 

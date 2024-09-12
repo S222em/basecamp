@@ -9,13 +9,18 @@
 #
 # Output example:
 # The Area of the Room: 27.5
+import re
 
-width = input("Width: ")
-length = input("Length: ")
 
-try:
-    width = float(width)
-    length = float(length)
-    print(f"The Area of the Room: {width * length}")
-except ValueError:
-    print("Please enter a valid decimal number")
+def validate_and_convert_to_float(to_convert: str):
+    if not re.fullmatch("\d+.\d+", to_convert):
+        print("Please enter a valid decimal number")
+        exit()
+
+    return float(to_convert)
+
+
+width = validate_and_convert_to_float(input("Width: "))
+length = validate_and_convert_to_float(input("Length: "))
+
+print(f"The Area of the Room: {width * length}")

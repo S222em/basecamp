@@ -26,13 +26,13 @@ sides = input("Sides: ")
 
 if not sides.isdigit():
     print("Please enter a valid integer")
-    exit(0)
+    exit()
 
 sides = int(sides)
 
 if sides < 3 or sides > 10:
     print("Amount of sides is out of range")
-    exit(0)
+    exit()
 
 name = NAMES[sides - 3]
 

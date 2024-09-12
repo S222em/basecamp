@@ -12,21 +12,21 @@
 #
 # Output example:
 # Isosceles triangle
-
+import re
 from collections import Counter
 
 NAMES = ["Scalene triangle", "Isosceles triangle", "Equilateral triangle"]
 
-sides = input("Sides: ")
+sides = input("Sides (format: a=x, b=y): ")
 
-try:
-    sides = [int(side[2::]) for side in sides.split(", ")]
+if not re.fullmatch("([a-z]=\d+(|, ))+", sides):
+    print("Please use this format: a=x, b=y")
+    exit()
 
-    counts = Counter(sides)
+sides = [int(side[2::]) for side in sides.split(", ")]
 
-    max_count = max(counts.values())
+counts = Counter(sides)
 
-    print(NAMES[max_count - 1])
+max_count = max(counts.values())
 
-except ValueError:
-    print("Please enter valid integers (format: a=x, b=y)")
+print(NAMES[max_count - 1])

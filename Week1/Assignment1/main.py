@@ -21,7 +21,7 @@ user_input = input()
 
 if not re.search("Years: \d+", user_input):
     print("Please enter in the following format: 'Years: x' ")
-    exit(0)
+    exit()
 
 years = int(user_input.split()[1])
 

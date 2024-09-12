@@ -12,8 +12,13 @@
 # Output examples:
 # White
 # Black
+import re
 
-position = input("Position: ")
+position = input("Position (example: A2): ").lower()
+
+if not re.fullmatch("[a-z]\d", position):
+    print("Please enter a valid chessboard position (A2)")
+    exit()
 
 [letter, number] = position
 

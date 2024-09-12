@@ -10,7 +10,7 @@ numbers_str = input("Number: ")
 
 if not numbers_str.isdigit():
     print("Please enter a valid integer")
-    exit(0)
+    exit()
 
 numbers = [int(number) for number in numbers_str]
 

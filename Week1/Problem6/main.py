@@ -10,7 +10,7 @@ days = input("Days: ")
 
 if not days.isdigit():
     print("Please enter a valid integer")
-    exit(0)
+    exit()
 
 days = int(days)
 

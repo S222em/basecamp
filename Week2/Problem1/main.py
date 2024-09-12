@@ -12,7 +12,7 @@ number = input("Number: ")
 
 if not number.isdigit():
     print("Please enter a valid integer")
-    exit(0)
+    exit()
 
 number = int(number)
 
