@@ -6,13 +6,13 @@
 # Output example:
 # 3+1+4+1=9
 
-numbers_str = input("Number: ")
+numbers = input("Number: ")
 
-if not numbers_str.isdigit():
+if not numbers.isdigit():
     print("Please enter a valid integer")
     exit()
 
-numbers = [int(number) for number in numbers_str]
+numbers = [int(number) for number in numbers]
 
 total_sum = sum(numbers)
 
