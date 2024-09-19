@@ -87,7 +87,7 @@ YES_OR_NO_PATTERN = re.compile("(Yes|No)")
 TEMPLATE_NAME_PATTERN = re.compile("(Job Offer|Rejection)")
 NAME_PATTERN = re.compile("[A-Z}[a-z]{1,9}")
 TITLE_PATTERN = re.compile("[^0-9]{10,}")
-SALARY_PATTERN = re.compile("([2-7][0-9].[0-9]{3},[0-9]{2})|80\.000,00")
+SALARY_PATTERN = re.compile("([2-7][0-9]\.[0-9]{3},[0-9]{2})|80\.000,00")
 DATE_PATTERN = re.compile("(2021|2022)-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[0-1])")
 FEEDBACK_PATTERN = re.compile(".+")
 
