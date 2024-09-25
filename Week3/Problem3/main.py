@@ -12,8 +12,8 @@
 import textwrap
 
 # Tests fail if a prompt is present
-width = int(input())
-height = int(input())
+width = int(input("Width: "))
+height = int(input("Height: "))
 
 characters = [str(i % 10) for i in range(width * height)]
 
