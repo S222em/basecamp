@@ -11,7 +11,6 @@
 # 0 1 2 3 4
 import textwrap
 
-# Tests fail if a prompt is present
 width = int(input("Width: "))
 height = int(input("Height: "))
 
