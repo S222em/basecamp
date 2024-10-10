@@ -76,15 +76,14 @@ def main():
     operator = OPERATION_TYPES[operation_type]
 
     correct = 0
-    incorrect = 0
 
     for _ in range(AMOUNT_OF_QUESTIONS):
         is_user_correct = arithmetic_operation(operator)
 
         if is_user_correct:
             correct += 1
-        else:
-            incorrect += 1
+
+    incorrect = AMOUNT_OF_QUESTIONS - correct
 
     print(f"You had {correct} correct and {incorrect} incorrect answers in \"{operation_type}\"")
 
