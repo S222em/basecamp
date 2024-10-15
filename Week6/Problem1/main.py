@@ -17,7 +17,7 @@ def unique_chars_dict(sentence) -> int:
 
 
 def unique_chars_set(sentence) -> int:
-    return len({char for char in sentence})
+    return len(set(sentence))
 
 
 def main():
