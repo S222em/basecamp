@@ -26,7 +26,7 @@ def is_password_valid(password) -> bool:
         in_pattern = False
         for pattern in PASSWORD_PATTERNS:
             if char in pattern:
-                password_patterns.update({pattern})
+                password_patterns.add(pattern)
                 in_pattern = True
                 break
 

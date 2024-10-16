@@ -58,7 +58,7 @@ def filter_temperatures_by_month(temperatures_by_year_month, month):
 
     for year_month, temperatures in temperatures_by_year_month.items():
         if year_month[1] == month:
-            filtered_temperatures.update({year_month: temperatures})
+            filtered_temperatures[year_month] = temperatures
 
     return filtered_temperatures
 
