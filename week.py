@@ -2,9 +2,11 @@
 
 import os
 
+
 def main():
     week = int(input("Week: "))
     problems = int(input("Amount of problems: "))
+    optional = int(input("Amount of optional problems: "))
     assignments = int(input("Amount of assignments: "))
 
     basecamp_directory = os.path.dirname(os.path.abspath(__file__))
@@ -23,9 +25,14 @@ def main():
         problem_directory = os.path.join(week_directory, f"Problem{i + 1}")
         create_directory_with_file(problem_directory)
 
+    for i in range(optional):
+        optional_directory = os.path.join(week_directory, f"Optional{i + 1}")
+        create_directory_with_file(optional_directory)
+
     for i in range(assignments):
         assignment_directory = os.path.join(week_directory, f"Assignment{i + 1}")
         create_directory_with_file(assignment_directory)
+
 
 if __name__ == "__main__":
     main()
