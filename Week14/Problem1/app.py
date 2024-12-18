@@ -36,7 +36,7 @@ class FinanceApp:
             json_data = json.load(file)
 
         for transaction in json_data:
-            date = transaction["date"]
+            date = "-".join(reversed(transaction["date"].split("-")))
             description = transaction["description"]
             category = transaction["category"]
             amount = transaction["amount"]
@@ -139,7 +139,7 @@ class FinanceApp:
         :return:
         """
         query = """SELECT * FROM transactions WHERE :year IS NULL OR date LIKE :year;"""
-        parameters = {"year": f"%{year}%" if year else None}
+        parameters = {"year": f"{year}%" if year else None}
 
         rows = self.execute(query, parameters, commit=False).fetchall()
 
@@ -152,7 +152,7 @@ class FinanceApp:
         :return:
         """
         query = """SELECT SUM(amount) FROM transactions WHERE (:year IS NULL OR date LIKE :year) AND category='Work';"""
-        parameters = {"year": f"%{year}%" if year else None}
+        parameters = {"year": f"{year}%" if year else None}
 
         row = self.execute(query, parameters, commit=False).fetchone()
 
@@ -169,7 +169,7 @@ class FinanceApp:
                     AND amount < 0
                     AND category != 'Work'
                     AND category != 'Savings';"""
-        parameters = {"year": f"%{year}%" if year else None}
+        parameters = {"year": f"{year}%" if year else None}
 
         row = self.execute(query, parameters, commit=False).fetchone()
 
@@ -183,7 +183,7 @@ class FinanceApp:
         """
         query = """SELECT SUM(amount) FROM transactions WHERE (:year IS NULL OR date LIKE :year)
                     AND category = 'Savings';"""
-        parameters = {"year": f"%{year}%" if year else None}
+        parameters = {"year": f"{year}%" if year else None}
 
         row = self.execute(query, parameters, commit=False).fetchone()
 
@@ -194,7 +194,7 @@ class FinanceApp:
         Returns the expenses per category
         :return:
         """
-        query = """SELECT category, amount FROM transactions WHERE amount <= 0;"""
+        query = """SELECT category, amount FROM transactions WHERE category != 'Work';"""
 
         rows = self.execute(query, None, commit=False).fetchall()
 
@@ -203,7 +203,9 @@ class FinanceApp:
         for category, amount in rows:
             categories[category] = categories.setdefault(category, 0) + amount
 
-        return list((category, round(amount, 2)) for category, amount in categories.items())
+        expenses = list((category, round(amount, 2)) for category, amount in categories.items())
+
+        return sorted(expenses, key=lambda expense: expense[1], reverse=True)
 
     def get_savings(self) -> list[tuple[str, float]]:
         """
@@ -218,9 +220,11 @@ class FinanceApp:
 
         for date, amount in rows:
             # If only I could have used defaultdict ):
-            years[date[-4:]] = years.setdefault(date[-4:], 0) - amount
+            years[date[:4]] = years.setdefault(date[:4], 0) - amount
 
-        return list((year, round(amount, 2)) for year, amount in years.items())
+        savings = list((year, round(amount, 2)) for year, amount in years.items())
+
+        return sorted(savings, key=lambda saving: int(saving[0]))
 
     def count_transactions(self, year: str | None = None) -> int:
         """
@@ -229,7 +233,7 @@ class FinanceApp:
         :return:
         """
         query = """SELECT COUNT(*) FROM transactions WHERE :year IS NULL OR date LIKE :year;"""
-        parameters = {"year": f"%{year}" if year else None}
+        parameters = {"year": f"{year}%" if year else None}
 
         rows = self.execute(query, parameters, commit=False).fetchall()
 
