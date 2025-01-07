@@ -57,10 +57,10 @@
 # def get_results_by_course(self, course_id, only_last=True):
 # This method should grab all results from the database belonging to the given course_id, if only_last is False it should return all results for that course, if only_last is True (default) it should only return the highest mark per student for that course. It should return a list of tuples.
 
-from course import Course
-from result import Result
 from resultsmanager import ResultsManager
-from student import Student
+from week15.problem3.course import Course
+from week15.problem3.result import Result
+from week15.problem3.student import Student
 
 
 def main():
