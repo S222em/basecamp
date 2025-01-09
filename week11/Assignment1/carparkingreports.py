@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from Assignment1.main import LOG_FILE, TIMESTAMP_FORMAT
+from main import LOG_FILE, TIMESTAMP_FORMAT
 
 DATE_FORMAT = "%d-%m-%Y"
 
